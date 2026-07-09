@@ -880,6 +880,12 @@ class Keysight33600GUI(tk.Tk):
         style.configure("Panel.TLabelframe", background=PANEL, foreground=FG, bordercolor=ACCENT)
         style.configure("Panel.TLabelframe.Label", background=PANEL, foreground=ACCENT, font=("Segoe UI", 10, "bold"))
         style.configure("Panel.TEntry", fieldbackground="#111417", foreground=FG)
+        # Force a visible cursor when the entry has focus  
+        style.map(
+            "Panel.TEntry",
+            insertcolor=[("focus", "white")],        # caret colour on focus
+            insertbackground=[("focus", "white")]   # fallback for systems that honour this
+            )
         style.configure("Panel.TCheckbutton", background=PANEL, foreground=FG)
         style.configure("WfToggle.TButton", padding=6)
         style.configure("Small.TButton", padding=4, font=("Segoe UI", 8))
